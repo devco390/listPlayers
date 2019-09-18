@@ -1,9 +1,35 @@
-main {
+.main {
   width: 100%;
-  margin-top: 2rem;
   text-align: center;
+  .players-top {
+    display: flex;
+    flex-direction: column;
+    > div {
+      display: flex;
+      mat-form-field {
+        width: 50%;
+        padding: 8px;
+      }
+      .container-btn {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 50%;
+        padding: 16px;
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 mat-card {
   margin: auto;
+  text-align: left;
 }

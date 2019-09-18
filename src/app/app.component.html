@@ -2,10 +2,9 @@
   Players
 </mat-toolbar>
 <div class="main">
-  <div class="players-action">
-    <div class="players-add">
+  <div class="players-top">
+    <div>
       <mat-form-field>
-        <a href="https://wa.me/?text=Me%20gustaría%20saber%20el%20precio%20del%20coche">message</a>
         <input
           type="text"
           placeholder="Ingrese un jugador"
@@ -14,31 +13,38 @@
           matInput
         />
       </mat-form-field>
-
-      <button
-        type="button"
-        (click)="addPlayer()"
-        mat-raised-button
-        color="primary"
-      >
-        Agregar
-      </button>
+      <div class="container-btn">
+        <button
+          type="button"
+          (click)="addPlayer()"
+          mat-raised-button
+          color="primary"
+        >
+          Agregar
+        </button>
+      </div>
     </div>
     <div>
-      <button type="button" (click)="copyPlayers()">Copiar Jugadores</button>
-    </div>
-    <div>
-      <button type="button" (click)="deleteAllPlayers()">Quitar todos</button>
+      <div class="container-btn">
+        <button type="button" (click)="copyPlayers()" mat-raised-button>
+          Copiar Jugadores
+        </button>
+      </div>
+      <div class="container-btn">
+        <button type="button" (click)="deleteAllPlayers()" mat-raised-button>
+          Quitar todos
+        </button>
+      </div>
     </div>
   </div>
 
   <mat-card>
     <ul>
       <li *ngFor="let player of players; let i = index">
+        <button mat-button (click)="removePlayer(player.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
         <label>{{ i + 1 }}. {{ player.name }}</label>
-        <label (click)="removePlayer(player.id)" class="btn btn-link"
-          >Quitar</label
-        >
       </li>
     </ul>
   </mat-card>
