@@ -1,13 +1,28 @@
-<div class="container">
+<mat-toolbar color="primary">
+  Players
+</mat-toolbar>
+<div class="main">
   <div class="players-action">
     <div class="players-add">
-      <input
-        type="text"
-        placeholder="Ingrese un jugador"
-        [(ngModel)]="newPlayer"
-        (keyup.enter)="addPlayer()"
-      />
-      <button type="button" (click)="addPlayer()">Agregar</button>
+      <mat-form-field>
+        <a href="https://wa.me/?text=Me%20gustaría%20saber%20el%20precio%20del%20coche">message</a>
+        <input
+          type="text"
+          placeholder="Ingrese un jugador"
+          [(ngModel)]="newPlayer"
+          (keyup.enter)="addPlayer()"
+          matInput
+        />
+      </mat-form-field>
+
+      <button
+        type="button"
+        (click)="addPlayer()"
+        mat-raised-button
+        color="primary"
+      >
+        Agregar
+      </button>
     </div>
     <div>
       <button type="button" (click)="copyPlayers()">Copiar Jugadores</button>
@@ -17,7 +32,7 @@
     </div>
   </div>
 
-  <div>
+  <mat-card>
     <ul>
       <li *ngFor="let player of players; let i = index">
         <label>{{ i + 1 }}. {{ player.name }}</label>
@@ -26,5 +41,5 @@
         >
       </li>
     </ul>
-  </div>
+  </mat-card>
 </div>
